@@ -13,13 +13,13 @@ public class Item
         
     }
 
-    public void DecreaseSellIn()
+    public virtual void DecreaseSellIn()
     {
         if (!IsSulfuras())
             SellIn -= 1;
     }
 
-    public void DecreaseQuality()
+    public virtual void DecreaseQuality()
     {
         if (IsSulfuras())
             return;
