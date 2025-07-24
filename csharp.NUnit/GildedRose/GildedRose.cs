@@ -20,11 +20,11 @@ public class GildedRose
     void aklsdjflkadsj(Item theItem)
     {
         if (!IsAgedBrie(theItem) && !IsBackstagePasses(theItem))
-            kllkafjsdl(theItem);
+            theItem.DecreaseQuality();
         else
             lkasjdfkl(theItem);
 
-        if (!IsSulfuras(theItem))
+        if (!Item.IsSulfuras(theItem))
             theItem.SellIn = theItem.SellIn - 1;
 
         if (theItem.SellIn < 0)
@@ -39,7 +39,7 @@ public class GildedRose
             {
                 if (theItem.Quality > 0)
                 {
-                    if (!IsSulfuras(theItem))
+                    if (!Item.IsSulfuras(theItem))
                     {
                         theItem.Quality = theItem.Quality - 1;
                     }
@@ -57,14 +57,6 @@ public class GildedRose
                 theItem.Quality = theItem.Quality + 1;
             }
         }
-    }
-
-    static void kllkafjsdl(Item theItem)
-    {
-        if (IsSulfuras(theItem))
-            return;
-
-        theItem.DecreaseQuality();
     }
 
     static void lkasjdfkl(Item theItem)
@@ -92,11 +84,6 @@ public class GildedRose
                 }
             }
         }
-    }
-
-    private static bool IsSulfuras(Item theItem)
-    {
-        return theItem.Name == "Sulfuras, Hand of Ragnaros";
     }
 
     private static bool IsBackstagePasses(Item theItem)

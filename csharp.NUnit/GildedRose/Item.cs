@@ -15,6 +15,14 @@ public class Item
 
     public void DecreaseQuality()
     {
+        if (IsSulfuras(this))
+            return;
+        
         Quality = Math.Max(0, Quality - 1);
+    }
+    
+    public static bool IsSulfuras(Item theItem)
+    {
+        return theItem.Name == "Sulfuras, Hand of Ragnaros";
     }
 }
