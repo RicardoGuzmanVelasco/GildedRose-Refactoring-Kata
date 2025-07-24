@@ -16,7 +16,7 @@ public class Item
             "Sulfuras, Hand of Ragnaros" => new Sulfuras() { SellIn = sellIn, Quality = quality },
             "Aged Brie" => new AgedBrie() { SellIn = sellIn, Quality = quality },
             "Backstage passes to a TAFKAL80ETC concert" => new BackstagePasses() { Name = name, SellIn = sellIn, Quality = quality },
-            _ => new Item { Name = name, SellIn = sellIn, Quality = quality }
+            _ => new Normal { Name = name, SellIn = sellIn, Quality = quality }
         };
     }
 
