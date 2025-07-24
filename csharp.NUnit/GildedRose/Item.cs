@@ -11,35 +11,12 @@ public class Item
 
     public static Item Create(string name, int sellIn, int quality)
     {
-        if (name == "Sulfuras, Hand of Ragnaros")
-            return new Sulfuras()
-            {
-                SellIn = sellIn,
-                Quality = quality
-            };
-
-        if (name == "Aged Brie")
-            return new AgedBrie()
-            {
-                SellIn = sellIn,
-                Quality = quality
-            };
-        
-        if (name == "Backstage passes to a TAFKAL80ETC concert")
+        return name switch
         {
-            return new BackstagePasses()
-            {
-                Name = name,
-                SellIn = sellIn,
-                Quality = quality
-            };
-        }
-
-        return new Item
-        {
-            Name = name,
-            SellIn = sellIn,
-            Quality = quality
+            "Sulfuras, Hand of Ragnaros" => new Sulfuras() { SellIn = sellIn, Quality = quality },
+            "Aged Brie" => new AgedBrie() { SellIn = sellIn, Quality = quality },
+            "Backstage passes to a TAFKAL80ETC concert" => new BackstagePasses() { Name = name, SellIn = sellIn, Quality = quality },
+            _ => new Item { Name = name, SellIn = sellIn, Quality = quality }
         };
     }
 
