@@ -100,7 +100,7 @@ public class GildedRose
         return theItem.Name == "Backstage passes to a TAFKAL80ETC concert";
     }
 
-    bool IsAgedBrie(Item theItem)
+    static bool IsAgedBrie(Item theItem)
     {
         return theItem.Name == "Aged Brie";
     }
