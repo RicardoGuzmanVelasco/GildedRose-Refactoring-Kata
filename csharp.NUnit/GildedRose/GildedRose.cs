@@ -19,11 +19,11 @@ public class GildedRose
 
     void aklsdjflkadsj(Item theItem)
     {
-        if (IsAgedBrie(theItem) && theItem.Name != "Backstage passes to a TAFKAL80ETC concert")
+        if (!IsAgedBrie(theItem) && !IsBackstagePasses(theItem))
         {
             if (theItem.Quality > 0)
             {
-                if (theItem.Name != "Sulfuras, Hand of Ragnaros")
+                if (!IsSulfuras(theItem))
                 {
                     theItem.Quality = theItem.Quality - 1;
                 }
@@ -35,7 +35,7 @@ public class GildedRose
             {
                 theItem.Quality = theItem.Quality + 1;
 
-                if (theItem.Name == "Backstage passes to a TAFKAL80ETC concert")
+                if (IsBackstagePasses(theItem))
                 {
                     if (theItem.SellIn < 11)
                     {
@@ -56,20 +56,20 @@ public class GildedRose
             }
         }
 
-        if (theItem.Name != "Sulfuras, Hand of Ragnaros")
+        if (!IsSulfuras(theItem))
         {
             theItem.SellIn = theItem.SellIn - 1;
         }
 
         if (theItem.SellIn < 0)
         {
-            if (theItem.Name != "Aged Brie")
+            if (!IsAgedBrie(theItem))
             {
-                if (theItem.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (!IsBackstagePasses(theItem))
                 {
                     if (theItem.Quality > 0)
                     {
-                        if (theItem.Name != "Sulfuras, Hand of Ragnaros")
+                        if (!IsSulfuras(theItem))
                         {
                             theItem.Quality = theItem.Quality - 1;
                         }
@@ -90,8 +90,18 @@ public class GildedRose
         }
     }
 
+    private static bool IsSulfuras(Item theItem)
+    {
+        return theItem.Name == "Sulfuras, Hand of Ragnaros";
+    }
+
+    private static bool IsBackstagePasses(Item theItem)
+    {
+        return theItem.Name == "Backstage passes to a TAFKAL80ETC concert";
+    }
+
     bool IsAgedBrie(Item theItem)
     {
-        return theItem.Name != "Aged Brie";
+        return theItem.Name == "Aged Brie";
     }
 }
