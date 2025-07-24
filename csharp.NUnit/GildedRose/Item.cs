@@ -13,6 +13,12 @@ public class Item
         
     }
 
+    public void DecreaseSellIn()
+    {
+        if (!IsSulfuras())
+            SellIn -= 1;
+    }
+
     public void DecreaseQuality()
     {
         if (IsSulfuras())

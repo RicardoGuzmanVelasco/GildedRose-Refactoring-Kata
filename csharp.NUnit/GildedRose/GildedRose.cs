@@ -24,8 +24,7 @@ public class GildedRose
         else
             lkasjdfkl(theItem);
 
-        if (!theItem.IsSulfuras())
-            theItem.SellIn = theItem.SellIn - 1;
+        theItem.DecreaseSellIn();
 
         if (theItem.SellIn < 0)
             jaklsdjflkads(theItem);
