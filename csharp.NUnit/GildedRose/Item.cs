@@ -24,6 +24,16 @@ public class Item
                 SellIn = sellIn,
                 Quality = quality
             };
+        
+        if (name == "Backstage passes to a TAFKAL80ETC concert")
+        {
+            return new BackstagePasses()
+            {
+                Name = name,
+                SellIn = sellIn,
+                Quality = quality
+            };
+        }
 
         return new Item
         {
@@ -33,16 +43,10 @@ public class Item
         };
     }
 
-    public void PassDay()
+    public virtual void PassDay()
     {
-        var theItem = this;
-
-        if (!theItem.IsBackstagePasses())
-            theItem.DecreaseQuality();
-        else
-            lkasjdfkl(theItem);
-
-        theItem.DecreaseSellIn();
+        DecreaseQuality();
+        DecreaseSellIn();
     }
 
     protected virtual void DecreaseSellIn()
@@ -50,7 +54,7 @@ public class Item
         SellIn -= 1;
 
         if (SellIn < 0)
-            Spoil(this);
+            DecreaseQuality();
     }
 
     protected virtual void DecreaseQuality()
@@ -61,34 +65,5 @@ public class Item
     protected void IncreaseQuality()
     {
         Quality = Math.Min(50, Quality + 1);
-    }
-
-    void SpoilQuality()
-    {
-        Quality = 0;
-    }
-
-    public bool IsBackstagePasses() => Name == "Backstage passes to a TAFKAL80ETC concert";
-
-    static void lkasjdfkl(Item theItem)
-    {
-        theItem.IncreaseQuality();
-
-        if (theItem.IsBackstagePasses())
-        {
-            if (theItem.SellIn < 11)
-                theItem.IncreaseQuality();
-
-            if (theItem.SellIn < 6)
-                theItem.IncreaseQuality();
-        }
-    }
-
-    static void Spoil(Item theItem)
-    {
-        if (theItem.IsBackstagePasses())
-            theItem.SpoilQuality();
-        else
-            theItem.DecreaseQuality();
     }
 }
