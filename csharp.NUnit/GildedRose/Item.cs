@@ -27,7 +27,17 @@ public class Item
 
     public void PassDay()
     {
+        var theItem = this;
         
+        if (!theItem.IsAgedBrie() && !theItem.IsBackstagePasses())
+            theItem.DecreaseQuality();
+        else
+            lkasjdfkl(theItem);
+
+        theItem.DecreaseSellIn();
+
+        if (theItem.SellIn < 0)
+            jaklsdjflkads(theItem);
     }
 
     public virtual void DecreaseSellIn()
@@ -57,4 +67,31 @@ public class Item
     public bool IsSulfuras() => Name == "Sulfuras, Hand of Ragnaros";
     public bool IsBackstagePasses() => Name == "Backstage passes to a TAFKAL80ETC concert";
     public bool IsAgedBrie() => Name == "Aged Brie";
+    
+    static void lkasjdfkl(Item theItem)
+    {
+        theItem.IncreaseQuality();
+
+        if (theItem.IsBackstagePasses())
+        {
+            if (theItem.SellIn < 11)
+                theItem.IncreaseQuality();
+
+            if (theItem.SellIn < 6)
+                theItem.IncreaseQuality();
+        }
+    }
+    
+    static void jaklsdjflkads(Item theItem)
+    {
+        if (theItem.IsAgedBrie())
+            theItem.IncreaseQuality();
+        else
+        {
+            if (theItem.IsBackstagePasses())
+                theItem.SpoilQuality();
+            else
+                theItem.DecreaseQuality();
+        }
+    }
 }
