@@ -61,13 +61,10 @@ public class GildedRose
 
     static void kllkafjsdl(Item theItem)
     {
-        if (theItem.Quality > 0)
-        {
-            if (!IsSulfuras(theItem))
-            {
-                theItem.Quality = theItem.Quality - 1;
-            }
-        }
+        if (IsSulfuras(theItem))
+            return;
+
+        theItem.DecreaseQuality();
     }
 
     static void lkasjdfkl(Item theItem)
