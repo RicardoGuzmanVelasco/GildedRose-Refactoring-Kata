@@ -4,6 +4,8 @@ namespace GildedRoseKata;
 
 internal class BackstagePasses : Item
 {
+    public override string Name =>  "Backstage passes to a TAFKAL80ETC concert";
+
     public override void PassDay()
     {
         IncreaseQuality();

@@ -5,7 +5,7 @@ namespace GildedRoseKata;
 
 public abstract class Item
 {
-    public virtual string Name { get; protected init; }
+    public virtual string Name { get; private init; }
     public int SellIn { get; protected set; }
     public int Quality { get; protected set; }
 
@@ -15,7 +15,8 @@ public abstract class Item
         {
             "Sulfuras, Hand of Ragnaros" => new Sulfuras() { SellIn = sellIn, Quality = quality },
             "Aged Brie" => new AgedBrie() { SellIn = sellIn, Quality = quality },
-            "Backstage passes to a TAFKAL80ETC concert" => new BackstagePasses() { Name = name, SellIn = sellIn, Quality = quality },
+            "Backstage passes to a TAFKAL80ETC concert" => new BackstagePasses() { SellIn = sellIn, Quality = quality },
+            "Conjured Mana Cake" => new Conjured() { SellIn = sellIn, Quality = quality},
             _ => new Normal { Name = name, SellIn = sellIn, Quality = quality }
         };
     }
