@@ -1,6 +1,6 @@
 ﻿namespace GildedRoseKata;
 
-public class Sulfuras : Item
+internal class Sulfuras : Item
 {
     public override void DecreaseSellIn()
     {
