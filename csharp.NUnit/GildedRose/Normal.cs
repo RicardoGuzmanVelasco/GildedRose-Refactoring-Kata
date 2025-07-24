@@ -2,7 +2,7 @@
 
 public class Normal : Item
 {
-    public virtual void PassDay()
+    public override void PassDay()
     {
         DecreaseQuality();
         DecreaseSellIn();

@@ -3,11 +3,11 @@ using System.Diagnostics;
 
 namespace GildedRoseKata;
 
-public class Item
+public abstract class Item
 {
-    public virtual string Name { get; init; }
-    public int SellIn { get; set; }
-    public int Quality { get; set; }
+    public virtual string Name { get; protected init; }
+    public int SellIn { get; protected set; }
+    public int Quality { get; protected set; }
 
     public static Item Create(string name, int sellIn, int quality)
     {
@@ -20,11 +20,7 @@ public class Item
         };
     }
 
-    public virtual void PassDay()
-    {
-        DecreaseQuality();
-        DecreaseSellIn();
-    }
+    public abstract void PassDay();
 
     protected void DecreaseSellIn()
     {
