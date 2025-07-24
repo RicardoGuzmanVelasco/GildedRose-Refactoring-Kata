@@ -3,16 +3,15 @@
 internal class AgedBrie : Item
 {
     public override string Name => "Aged Brie";
-    
+
+    public override void PassDay()
+    {
+        IncreaseQuality();
+        DecreaseSellIn();
+    }
+
     protected override void DecreaseQuality()
     {
         IncreaseQuality();
-    }
-    
-    protected override void DecreaseSellIn()
-    {
-        SellIn -= 1;
-        if (SellIn < 0)
-            IncreaseQuality();
     }
 }

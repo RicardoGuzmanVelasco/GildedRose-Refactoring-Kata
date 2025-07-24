@@ -26,7 +26,7 @@ public class Item
         DecreaseSellIn();
     }
 
-    protected virtual void DecreaseSellIn()
+    protected void DecreaseSellIn()
     {
         SellIn -= 1;
 
