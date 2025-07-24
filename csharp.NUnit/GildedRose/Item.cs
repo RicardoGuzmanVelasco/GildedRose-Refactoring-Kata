@@ -20,6 +20,16 @@ public class Item
         
         Quality = Math.Max(0, Quality - 1);
     }
+
+    public void IncreaseQuality()
+    {
+        Quality = Math.Min(50, Quality + 1);
+    }
+
+    public void SpoilQuality()
+    {
+        Quality = 0;
+    }
     
     public static bool IsSulfuras(Item theItem)
     {

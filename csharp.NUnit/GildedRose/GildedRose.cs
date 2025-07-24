@@ -36,27 +36,12 @@ public class GildedRose
         if (!IsAgedBrie(theItem))
         {
             if (!IsBackstagePasses(theItem))
-            {
-                if (theItem.Quality > 0)
-                {
-                    if (!Item.IsSulfuras(theItem))
-                    {
-                        theItem.Quality = theItem.Quality - 1;
-                    }
-                }
-            }
+                theItem.DecreaseQuality();
             else
-            {
-                theItem.Quality = theItem.Quality - theItem.Quality;
-            }
+                theItem.SpoilQuality();
         }
         else
-        {
-            if (theItem.Quality < 50)
-            {
-                theItem.Quality = theItem.Quality + 1;
-            }
-        }
+            theItem.IncreaseQuality();
     }
 
     static void lkasjdfkl(Item theItem)
