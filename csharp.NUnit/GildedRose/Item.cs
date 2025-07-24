@@ -15,7 +15,7 @@ public class Item
 
     public void DecreaseQuality()
     {
-        if (IsSulfuras(this))
+        if (IsSulfuras())
             return;
         
         Quality = Math.Max(0, Quality - 1);
@@ -31,8 +31,7 @@ public class Item
         Quality = 0;
     }
     
-    public static bool IsSulfuras(Item theItem)
-    {
-        return theItem.Name == "Sulfuras, Hand of Ragnaros";
-    }
+    public bool IsSulfuras() => Name == "Sulfuras, Hand of Ragnaros";
+    public bool IsBackstagePasses() => Name == "Backstage passes to a TAFKAL80ETC concert";
+    public bool IsAgedBrie() => Name == "Aged Brie";
 }

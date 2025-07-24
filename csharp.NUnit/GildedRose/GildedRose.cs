@@ -19,12 +19,12 @@ public class GildedRose
 
     void aklsdjflkadsj(Item theItem)
     {
-        if (!IsAgedBrie(theItem) && !IsBackstagePasses(theItem))
+        if (!theItem.IsAgedBrie() && !theItem.IsBackstagePasses())
             theItem.DecreaseQuality();
         else
             lkasjdfkl(theItem);
 
-        if (!Item.IsSulfuras(theItem))
+        if (!theItem.IsSulfuras())
             theItem.SellIn = theItem.SellIn - 1;
 
         if (theItem.SellIn < 0)
@@ -33,15 +33,15 @@ public class GildedRose
 
     static void jaklsdjflkads(Item theItem)
     {
-        if (!IsAgedBrie(theItem))
-        {
-            if (!IsBackstagePasses(theItem))
-                theItem.DecreaseQuality();
-            else
-                theItem.SpoilQuality();
-        }
-        else
+        if (theItem.IsAgedBrie())
             theItem.IncreaseQuality();
+        else
+        {
+            if (theItem.IsBackstagePasses())
+                theItem.SpoilQuality();
+            else
+                theItem.DecreaseQuality();
+        }
     }
 
     static void lkasjdfkl(Item theItem)
@@ -50,7 +50,7 @@ public class GildedRose
         {
             theItem.Quality = theItem.Quality + 1;
 
-            if (IsBackstagePasses(theItem))
+            if (theItem.IsBackstagePasses())
             {
                 if (theItem.SellIn < 11)
                 {
@@ -69,15 +69,5 @@ public class GildedRose
                 }
             }
         }
-    }
-
-    private static bool IsBackstagePasses(Item theItem)
-    {
-        return theItem.Name == "Backstage passes to a TAFKAL80ETC concert";
-    }
-
-    static bool IsAgedBrie(Item theItem)
-    {
-        return theItem.Name == "Aged Brie";
     }
 }
