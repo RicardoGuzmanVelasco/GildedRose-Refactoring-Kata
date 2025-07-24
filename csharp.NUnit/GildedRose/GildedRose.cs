@@ -14,10 +14,10 @@ public class GildedRose
     public void UpdateQuality()
     {
         foreach (var item in Items)
-            aklsdjflkadsj(item);
+            PassDayOn(item);
     }
 
-    void aklsdjflkadsj(Item theItem)
+    void PassDayOn(Item theItem)
     {
         if (!theItem.IsAgedBrie() && !theItem.IsBackstagePasses())
             theItem.DecreaseQuality();
@@ -46,28 +46,15 @@ public class GildedRose
 
     static void lkasjdfkl(Item theItem)
     {
-        if (theItem.Quality < 50)
+        theItem.IncreaseQuality();
+
+        if (theItem.IsBackstagePasses())
         {
-            theItem.Quality = theItem.Quality + 1;
+            if (theItem.SellIn < 11)
+                theItem.IncreaseQuality();
 
-            if (theItem.IsBackstagePasses())
-            {
-                if (theItem.SellIn < 11)
-                {
-                    if (theItem.Quality < 50)
-                    {
-                        theItem.Quality = theItem.Quality + 1;
-                    }
-                }
-
-                if (theItem.SellIn < 6)
-                {
-                    if (theItem.Quality < 50)
-                    {
-                        theItem.Quality = theItem.Quality + 1;
-                    }
-                }
-            }
+            if (theItem.SellIn < 6)
+                theItem.IncreaseQuality();
         }
     }
 }
