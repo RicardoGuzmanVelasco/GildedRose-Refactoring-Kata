@@ -20,13 +20,34 @@ public class GildedRose
     void aklsdjflkadsj(Item theItem)
     {
         if (!IsAgedBrie(theItem) && !IsBackstagePasses(theItem))
+            kllkafjsdl(theItem);
+        else
+            lkasjdfkl(theItem);
+
+        if (!IsSulfuras(theItem))
+            theItem.SellIn = theItem.SellIn - 1;
+
+        if (theItem.SellIn < 0)
+            jaklsdjflkads(theItem);
+    }
+
+    static void jaklsdjflkads(Item theItem)
+    {
+        if (!IsAgedBrie(theItem))
         {
-            if (theItem.Quality > 0)
+            if (!IsBackstagePasses(theItem))
             {
-                if (!IsSulfuras(theItem))
+                if (theItem.Quality > 0)
                 {
-                    theItem.Quality = theItem.Quality - 1;
+                    if (!IsSulfuras(theItem))
+                    {
+                        theItem.Quality = theItem.Quality - 1;
+                    }
                 }
+            }
+            else
+            {
+                theItem.Quality = theItem.Quality - theItem.Quality;
             }
         }
         else
@@ -34,57 +55,43 @@ public class GildedRose
             if (theItem.Quality < 50)
             {
                 theItem.Quality = theItem.Quality + 1;
-
-                if (IsBackstagePasses(theItem))
-                {
-                    if (theItem.SellIn < 11)
-                    {
-                        if (theItem.Quality < 50)
-                        {
-                            theItem.Quality = theItem.Quality + 1;
-                        }
-                    }
-
-                    if (theItem.SellIn < 6)
-                    {
-                        if (theItem.Quality < 50)
-                        {
-                            theItem.Quality = theItem.Quality + 1;
-                        }
-                    }
-                }
             }
         }
+    }
 
-        if (!IsSulfuras(theItem))
+    static void kllkafjsdl(Item theItem)
+    {
+        if (theItem.Quality > 0)
         {
-            theItem.SellIn = theItem.SellIn - 1;
-        }
-
-        if (theItem.SellIn < 0)
-        {
-            if (!IsAgedBrie(theItem))
+            if (!IsSulfuras(theItem))
             {
-                if (!IsBackstagePasses(theItem))
+                theItem.Quality = theItem.Quality - 1;
+            }
+        }
+    }
+
+    static void lkasjdfkl(Item theItem)
+    {
+        if (theItem.Quality < 50)
+        {
+            theItem.Quality = theItem.Quality + 1;
+
+            if (IsBackstagePasses(theItem))
+            {
+                if (theItem.SellIn < 11)
                 {
-                    if (theItem.Quality > 0)
+                    if (theItem.Quality < 50)
                     {
-                        if (!IsSulfuras(theItem))
-                        {
-                            theItem.Quality = theItem.Quality - 1;
-                        }
+                        theItem.Quality = theItem.Quality + 1;
                     }
                 }
-                else
+
+                if (theItem.SellIn < 6)
                 {
-                    theItem.Quality = theItem.Quality - theItem.Quality;
-                }
-            }
-            else
-            {
-                if (theItem.Quality < 50)
-                {
-                    theItem.Quality = theItem.Quality + 1;
+                    if (theItem.Quality < 50)
+                    {
+                        theItem.Quality = theItem.Quality + 1;
+                    }
                 }
             }
         }
