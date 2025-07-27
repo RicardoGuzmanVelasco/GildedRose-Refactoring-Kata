@@ -9,5 +9,7 @@ public class Conjured : Item
         DecreaseQuality();
         DecreaseQuality();
         DecreaseSellIn();
+        if (IsSpoiled())
+            DecreaseQuality();
     }
 }

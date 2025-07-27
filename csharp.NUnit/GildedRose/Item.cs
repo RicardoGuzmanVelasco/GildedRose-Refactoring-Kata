@@ -26,9 +26,6 @@ public abstract class Item
     protected void DecreaseSellIn()
     {
         SellIn -= 1;
-
-        if (IsSpoiled())
-            DecreaseQuality();
     }
 
     protected bool IsSpoiled()

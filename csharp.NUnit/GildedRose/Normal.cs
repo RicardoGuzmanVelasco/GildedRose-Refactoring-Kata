@@ -6,5 +6,7 @@ public class Normal : Item
     {
         DecreaseQuality();
         DecreaseSellIn();
+        if (IsSpoiled())
+            DecreaseQuality();
     }
 }

@@ -13,8 +13,8 @@ internal class BackstagePasses : Item
             IncreaseQuality();
         if (SellIn < 6)
             IncreaseQuality();
-        SellIn -= 1;
-
+        
+        DecreaseSellIn();
         if (IsSpoiled())
             Quality = 0;
     }
