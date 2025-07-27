@@ -9,11 +9,6 @@ internal class AgedBrie : Item
         IncreaseQuality();
         DecreaseSellIn();
         if (IsSpoiled())
-            DecreaseQuality();
-    }
-
-    protected override void DecreaseQuality()
-    {
-        IncreaseQuality();
+            IncreaseQuality();
     }
 }

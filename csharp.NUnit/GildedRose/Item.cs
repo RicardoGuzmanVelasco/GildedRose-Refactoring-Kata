@@ -33,7 +33,7 @@ public abstract class Item
         return SellIn < 0;
     }
 
-    protected virtual void DecreaseQuality()
+    protected void DecreaseQuality()
     {
         Quality = Math.Max(0, Quality - 1);
     }
