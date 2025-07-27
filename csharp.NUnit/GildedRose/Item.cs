@@ -27,8 +27,13 @@ public abstract class Item
     {
         SellIn -= 1;
 
-        if (SellIn < 0)
+        if (IsSpoiled())
             DecreaseQuality();
+    }
+
+    protected bool IsSpoiled()
+    {
+        return SellIn < 0;
     }
 
     protected virtual void DecreaseQuality()
