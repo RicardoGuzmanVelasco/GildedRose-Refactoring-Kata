@@ -8,7 +8,7 @@ public class Item
     
     public void PassDay()
     {
-        if (Name != "Aged Brie" && Name != "Backstage passes to a TAFKAL80ETC concert")
+        if (!IsAgedBrie && !IsBackstage)
         {
             if (QualityNotSulfurasdojderfgoijsdofg())
             {
@@ -21,7 +21,7 @@ public class Item
             {
                 Quality++;
 
-                if (Name == "Backstage passes to a TAFKAL80ETC concert")
+                if (IsBackstage)
                 {
                     if (SellIn < 11)
                     {
@@ -44,14 +44,14 @@ public class Item
 
         if (!IsSulfuras)
         {
-            SellIn = SellIn - 1;
+            SellIn--;
         }
 
         if (SellIn < 0)
         {
-            if (Name != "Aged Brie")
+            if (!IsAgedBrie)
             {
-                if (Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (!IsBackstage)
                 {
                     if (Quality > 0)
                     {
@@ -63,7 +63,7 @@ public class Item
                 }
                 else
                 {
-                    Quality = Quality - Quality;
+                    Quality = 0;
                 }
             }
             else
@@ -75,8 +75,11 @@ public class Item
             }
         }
     }
-    
-        
+
+    private bool IsBackstage => (Name == "Backstage passes to a TAFKAL80ETC concert");
+
+    private bool IsAgedBrie => Name == "Aged Brie";
+
 
     private bool QualityNotSulfurasdojderfgoijsdofg()
     {
