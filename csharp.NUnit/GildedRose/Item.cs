@@ -42,7 +42,7 @@ public class Item
             }
         }
 
-        if (Name != "Sulfuras, Hand of Ragnaros")
+        if (!IsSulfuras)
         {
             SellIn = SellIn - 1;
         }
@@ -55,7 +55,7 @@ public class Item
                 {
                     if (Quality > 0)
                     {
-                        if (Name != "Sulfuras, Hand of Ragnaros")
+                        if (!IsSulfuras)
                         {
                             Quality--;
                         }
@@ -80,7 +80,10 @@ public class Item
 
     private bool QualityNotSulfurasdojderfgoijsdofg()
     {
-        return Quality > 0 && Name != "Sulfuras, Hand of Ragnaros";
+        return HasQuality && !IsSulfuras;
     }
-    
+
+    private bool IsSulfuras => Name == "Sulfuras, Hand of Ragnaros";
+
+    private bool HasQuality => Quality > 0;
 }
