@@ -10,13 +10,7 @@ public class Item
     {
         if (!IsAgedBrie && !IsBackstage)
         {
-            if (HasQuality)
-            {
-                if (!IsSulfuras)
-                {
-                    Quality--;
-                }
-            }
+            DecreaseQuality();
         }
         else
         {
@@ -50,13 +44,7 @@ public class Item
             {
                 if (!IsBackstage)
                 {
-                    if (Quality > 0)
-                    {
-                        if (!IsSulfuras)
-                        {
-                            Quality--;
-                        }
-                    }
+                    DecreaseQuality();
                 }
                 else
                 {
@@ -66,6 +54,17 @@ public class Item
             else
             {
                 IncreaseQuality();
+            }
+        }
+    }
+
+    private void DecreaseQuality()
+    {
+        if (HasQuality)
+        {
+            if (!IsSulfuras)
+            {
+                Quality--;
             }
         }
     }
