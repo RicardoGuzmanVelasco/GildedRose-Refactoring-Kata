@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using System;
+
+namespace GildedRoseKata;
 
 public class Item
 {
@@ -14,21 +16,18 @@ public class Item
         }
         else
         {
-            if (Quality < 50)
+            IncreaseQuality();
+
+            if (IsBackstage)
             {
-                Quality++;
-
-                if (IsBackstage)
+                if (SellIn < 11)
                 {
-                    if (SellIn < 11)
-                    {
-                        IncreaseQuality();
-                    }
+                    IncreaseQuality();
+                }
 
-                    if (SellIn < 6)
-                    {
-                        IncreaseQuality();
-                    }
+                if (SellIn < 6)
+                {
+                    IncreaseQuality();
                 }
             }
         }
@@ -60,21 +59,13 @@ public class Item
 
     private void DecreaseQuality()
     {
-        if (HasQuality)
-        {
-            if (!IsSulfuras)
-            {
-                Quality--;
-            }
-        }
+        if (IsSulfuras) return;
+        Quality = Math.Max(--Quality, 0);
     }
 
     private void IncreaseQuality()
     {
-        if (Quality < 50)
-        {
-            Quality++;
-        }
+        Quality = Math.Min(++Quality, 50);
     }
 
     private bool IsBackstage => (Name == "Backstage passes to a TAFKAL80ETC concert");
