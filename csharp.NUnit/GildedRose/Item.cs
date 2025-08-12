@@ -10,9 +10,12 @@ public class Item
     {
         if (!IsAgedBrie && !IsBackstage)
         {
-            if (QualityNotSulfurasdojderfgoijsdofg())
+            if (HasQuality)
             {
-                Quality--;
+                if (!IsSulfuras)
+                {
+                    Quality--;
+                }
             }
         }
         else
@@ -25,18 +28,12 @@ public class Item
                 {
                     if (SellIn < 11)
                     {
-                        if (Quality < 50)
-                        {
-                            Quality++;
-                        }
+                        IncreaseQuality();
                     }
 
                     if (SellIn < 6)
                     {
-                        if (Quality < 50)
-                        {
-                            Quality++;
-                        }
+                        IncreaseQuality();
                     }
                 }
             }
@@ -68,11 +65,16 @@ public class Item
             }
             else
             {
-                if (Quality < 50)
-                {
-                    Quality++;
-                }
+                IncreaseQuality();
             }
+        }
+    }
+
+    private void IncreaseQuality()
+    {
+        if (Quality < 50)
+        {
+            Quality++;
         }
     }
 
@@ -80,11 +82,6 @@ public class Item
 
     private bool IsAgedBrie => Name == "Aged Brie";
 
-
-    private bool QualityNotSulfurasdojderfgoijsdofg()
-    {
-        return HasQuality && !IsSulfuras;
-    }
 
     private bool IsSulfuras => Name == "Sulfuras, Hand of Ragnaros";
 
